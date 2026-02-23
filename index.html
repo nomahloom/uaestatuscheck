@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="UAE legal help for expats: visa overstay, eviction disputes, AECB credit repair. Fast, private, affordable. WhatsApp now."/>
+  <title>UAE Status Check — Legal Help for Every Expat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    :root {
+      --red:#E03E3E; --amber:#E08C00; --teal:#00C4B4;
+      --dark:#070C10; --card:#101820; --card2:#0C1420; --border:#1A2A3A;
+      --text:#A8BED4; --muted:#4E6A84; --white:#FFFFFF; --wa:#25D366;
+    }
+    html { scroll-behavior:smooth; }
+    body { background:var(--dark); color:var(--text); font-family:'DM Sans',sans-serif; line-height:1.65; overflow-x:hidden; }
+
+    @keyframes fadeUp    { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes pulseRing { 0%{transform:scale(1);opacity:.65} 100%{transform:scale(2);opacity:0} }
+    @keyframes blink     { 0%,100%{opacity:1} 50%{opacity:.2} }
+    @keyframes ticker    { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+    .ticker-wrap { background:var(--red); overflow:hidden; padding:7px 0; position:relative; z-index:10; }
+    .ticker-track { display:inline-block; white-space:nowrap; animation:ticker 36s linear infinite; }
+    .ticker-track span { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#fff; margin:0 40px; }
+    .ticker-track span::before { content:'⚠ '; }
+
+    nav { position:sticky; top:0; z-index:100; background:rgba(7,12,16,.95); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); padding:13px 20px; display:flex; justify-content:space-between; align-items:center; }
+    .logo { font-family:'Syne',sans-serif; font-weight:800; font-size:15px; color:var(--teal); }
+    .logo span { color:var(--white); }
+    .nav-pill { font-size:11px; font-weight:600; color:var(--teal); border:1px solid rgba(0,196,180,.3); border-radius:20px; padding:4px 12px; }
+
+    .hero { position:relative; z-index:1; max-width:660px; margin:0 auto; padding:56px 22px 44px; text-align:center; }
+    .eyebrow { display:inline-block; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); border:1px solid rgba(0,196,180,.3); background:rgba(0,196,180,.06); border-radius:4px; padding:5px 14px; margin-bottom:22px; animation:fadeUp .5s ease both; }
+    .hero h1 { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(26px,7.5vw,46px); line-height:1.15; color:var(--white); margin-bottom:14px; animation:fadeUp .55s .05s ease both; }
+    .hero h1 em { font-style:normal; color:var(--teal); }
+    .hero-sub { font-size:clamp(14px,3.5vw,16px); color:var(--text); max-width:500px; margin:0 auto 28px; animation:fadeUp .55s .1s ease both; }
+
+    .lang-strip { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:32px; animation:fadeUp .55s .15s ease both; }
+    .lang-pill { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:5px 14px; font-size:13px; color:var(--text); }
+    .lang-pill span { font-size:16px; margin-right:4px; }
+
+    .cta-wrap { position:relative; display:inline-flex; justify-content:center; animation:fadeUp .55s .18s ease both; }
+    .cta-ring { position:absolute; inset:-6px; border-radius:50px; border:2px solid var(--wa); animation:pulseRing 2s ease-out infinite; }
+    .cta-btn { position:relative; z-index:1; display:inline-flex; align-items:center; gap:10px; background:var(--wa); color:#082916; font-family:'Syne',sans-serif; font-weight:800; font-size:15px; padding:16px 32px; border-radius:50px; text-decoration:none; box-shadow:0 0 28px rgba(37,211,102,.35); transition:transform .15s,box-shadow .15s; }
+    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 0 44px rgba(37,211,102,.52); }
+    .cta-btn svg { width:20px; height:20px; }
+    .cta-note { font-size:12px; color:var(--muted); margin-top:10px; animation:fadeUp .55s .22s ease both; }
+    .cta-note strong { color:var(--teal); }
+    .live-bar { display:flex; justify-content:center; align-items:center; gap:7px; margin-top:16px; animation:fadeUp .55s .25s ease both; }
+    .live-dot { width:7px; height:7px; border-radius:50%; background:var(--wa); animation:blink 1.4s ease-in-out infinite; }
+    .live-txt { font-size:12px; color:var(--muted); }
+
+    hr.div { border:none; border-top:1px solid var(--border); margin:48px 22px; }
+
+    .section { position:relative; z-index:1; max-width:680px; margin:0 auto; padding:0 22px 52px; }
+    .sec-lbl { font-size:10px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:8px; }
+    .sec-title { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(20px,5vw,28px); color:var(--white); line-height:1.22; margin-bottom:14px; }
+    .sec-title em { font-style:normal; color:var(--teal); }
+
+    .tiers { display:flex; flex-direction:column; gap:20px; }
+    .tier-card { border-radius:16px; overflow:hidden; border:1px solid var(--border); background:var(--card); }
+    .tier-card.t1 { border-color:rgba(224,62,62,.5); }
+    .tier-card.t2 { border-color:rgba(224,140,0,.5); }
+    .tier-card.t3 { border-color:rgba(0,196,180,.5); }
+
+    .tier-header { padding:20px 22px 16px; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; gap:16px; }
+    .tier-badge { flex-shrink:0; width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; }
+    .t1 .tier-badge { background:rgba(224,62,62,.12); }
+    .t2 .tier-badge { background:rgba(224,140,0,.12); }
+    .t3 .tier-badge { background:rgba(0,196,180,.12); }
+
+    .tier-urgency { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:4px; }
+    .t1 .tier-urgency { color:#E87070; }
+    .t2 .tier-urgency { color:#E0A040; }
+    .t3 .tier-urgency { color:var(--teal); }
+    .tier-name { font-family:'Syne',sans-serif; font-weight:800; font-size:18px; color:var(--white); margin-bottom:4px; }
+    .tier-hook { font-size:14px; color:var(--text); line-height:1.55; }
+
+    .tier-price-row { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; border-bottom:1px solid var(--border); background:var(--card2); }
+    .tier-price { font-family:'Syne',sans-serif; font-weight:800; font-size:26px; color:var(--white); }
+
+    .tier-covers { padding:16px 22px 6px; }
+    .tier-covers-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+    .cover-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; font-size:14px; color:var(--text); line-height:1.5; }
+    .cover-icon { flex-shrink:0; font-size:16px; margin-top:1px; }
+
+    .tier-langs { padding:14px 22px; display:flex; flex-direction:column; gap:8px; border-top:1px solid var(--border); }
+    .tier-lang { display:flex; gap:10px; align-items:flex-start; background:var(--card2); border-radius:8px; padding:10px 12px; }
+    .tier-lang-flag { font-size:18px; flex-shrink:0; }
+    .tier-lang-text { font-size:13px; color:var(--white); line-height:1.45; }
+
+    .tier-cta { margin:4px 22px 20px; display:flex; align-items:center; justify-content:center; gap:8px; padding:13px 20px; border-radius:10px; text-decoration:none; font-family:'Syne',sans-serif; font-weight:700; font-size:14px; transition:background .15s,border-color .15s; }
+    .t1 .tier-cta { background:rgba(224,62,62,.12); border:1px solid rgba(224,62,62,.35); color:#E87070; }
+    .t1 .tier-cta:hover { background:rgba(224,62,62,.2); }
+    .t2 .tier-cta { background:rgba(224,140,0,.1); border:1px solid rgba(224,140,0,.35); color:#E0A040; }
+    .t2 .tier-cta:hover { background:rgba(224,140,0,.2); }
+    .t3 .tier-cta { background:rgba(0,196,180,.1); border:1px solid rgba(0,196,180,.35); color:var(--teal); }
+    .t3 .tier-cta:hover { background:rgba(0,196,180,.18); }
+    .tier-cta svg { width:16px; height:16px; }
+
+    .steps { display:flex; flex-direction:column; gap:0; margin-top:22px; }
+    .step { display:flex; gap:18px; align-items:flex-start; padding-bottom:28px; position:relative; }
+    .step:not(:last-child)::after { content:''; position:absolute; left:17px; top:36px; bottom:0; width:2px; background:var(--border); }
+    .step-num { width:36px; height:36px; border-radius:50%; background:var(--teal); color:var(--dark); font-family:'Syne',sans-serif; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative; z-index:1; }
+    .step-title { font-family:'Syne',sans-serif; font-weight:700; font-size:15px; color:var(--white); margin-bottom:3px; }
+    .step-desc { font-size:13px; color:var(--muted); line-height:1.55; }
+
+    .trust-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px; }
+    .trust-item { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px 14px; text-align:center; }
+    .trust-icon { font-size:22px; margin-bottom:8px; }
+    .trust-txt { font-size:13px; color:var(--text); line-height:1.45; }
+    .trust-txt strong { color:var(--white); display:block; margin-bottom:2px; }
+
+    .bottom-cta { background:linear-gradient(140deg,rgba(0,196,180,.08),transparent); border:1px solid rgba(0,196,180,.25); border-radius:18px; padding:44px 22px; text-align:center; margin:0 22px 56px; position:relative; z-index:1; }
+    .bottom-cta h2 { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(20px,5vw,28px); color:var(--white); margin-bottom:10px; }
+    .bottom-cta p { font-size:15px; color:var(--text); max-width:380px; margin:0 auto 26px; }
+
+    footer { border-top:1px solid var(--border); padding:24px; text-align:center; position:relative; z-index:1; }
+    footer p { font-size:11px; color:var(--muted); line-height:1.8; max-width:560px; margin:0 auto; }
+    footer a { color:var(--muted); }
+
+    .float-wa { position:fixed; bottom:22px; right:18px; z-index:999; background:var(--wa); width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 24px rgba(37,211,102,.5); text-decoration:none; transition:transform .15s; }
+    .float-wa:hover { transform:scale(1.08); }
+    .float-wa svg { width:26px; height:26px; }
+  </style>
+</head>
+<body>
+
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Visa overstay fines increase after 30 days — check your status today</span>
+    <span>Travel bans are issued without notification — you may have one right now</span>
+    <span>Eviction without proper legal notice is invalid in UAE — know your rights</span>
+    <span>AECB score below 580 blocks home loans and car finance in UAE</span>
+    <span>Arrest warrants can exist without you knowing — check before you travel</span>
+    <span>Services available in English · Urdu · Hindi · Tagalog · Arabic</span>
+    <span>Visa overstay fines increase after 30 days — check your status today</span>
+    <span>Travel bans are issued without notification — you may have one right now</span>
+    <span>Eviction without proper legal notice is invalid in UAE — know your rights</span>
+    <span>AECB score below 580 blocks home loans and car finance in UAE</span>
+    <span>Arrest warrants can exist without you knowing — check before you travel</span>
+    <span>Services available in English · Urdu · Hindi · Tagalog · Arabic</span>
+  </div>
+</div>
+
+<nav>
+  <div class="logo">UAE <span>STATUS CHECK</span></div>
+  <div class="nav-pill">Confidential ✓</div>
+</nav>
+
+<div class="hero">
+  <div class="eyebrow">3 Service Tiers · From AED 49.99 · WhatsApp Only · All UAE</div>
+  <h1>In trouble with UAE law?<br><em>We help you understand it.</em></h1>
+  <p class="hero-sub">From visa overstays to eviction disputes to credit problems — we explain your situation clearly, in your language, and show you exactly what to do next. Starting from AED 49.99.</p>
+
+  <div class="lang-strip">
+    <div class="lang-pill"><span>🇬🇧</span>English</div>
+    <div class="lang-pill"><span>🇵🇰</span>Urdu / اردو</div>
+    <div class="lang-pill"><span>🇮🇳</span>Hindi / हिंदी</div>
+    <div class="lang-pill"><span>🇵🇭</span>Tagalog</div>
+    <div class="lang-pill"><span>🇦🇪</span>Arabic / عربي</div>
+    <div class="lang-pill"><span>🇧🇩</span>Bengali</div>
+  </div>
+
+  <div class="cta-wrap">
+    <div class="cta-ring"></div>
+    <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20UAE%20situation" class="cta-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Message Us Now — Free to Ask
+    </a>
+  </div>
+  <p class="cta-note">No judgment. <strong>100% private.</strong> We reply within 30 min · 8AM–11PM UAE time</p>
+  <div class="live-bar"><div class="live-dot"></div><div class="live-txt">Accepting clients now</div></div>
+</div>
+
+<hr class="div"/>
+
+<div class="section">
+  <div class="sec-lbl">Choose Your Situation</div>
+  <h2 class="sec-title">We meet you<br><em>exactly where you are.</em></h2>
+  <p style="font-size:15px;margin-bottom:28px">You do not need to understand the UAE legal system. Tell us your situation. We explain what it means and what to do — clearly, in plain language, in your language.</p>
+
+  <div class="tiers">
+
+    <!-- TIER 1 -->
+    <div class="tier-card t1">
+      <div class="tier-header">
+        <div class="tier-badge">🚨</div>
+        <div class="tier-meta">
+          <div class="tier-urgency">Tier 1 · High Urgency · AED 49.99</div>
+          <div class="tier-name">Status &amp; Safety Check</div>
+          <div class="tier-hook">For people who are worried right now — visa expired, unsure if there is a warrant, afraid to travel. We check every government portal and tell you exactly where you stand, in simple language.</div>
+        </div>
+      </div>
+      <div class="tier-price-row">
+        <div>
+          <div class="tier-price">AED 49.99</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">≈ $14 USD · Full check, one payment</div>
+        </div>
+        <div style="text-align:right;font-size:12px;color:var(--muted)">Results within<br><strong style="color:#fff;font-size:15px">24 hours</strong></div>
+      </div>
+      <div class="tier-covers">
+        <div class="tier-covers-label">This covers</div>
+        <div class="cover-item"><div class="cover-icon">🛂</div><div>Visa overstay status — exact days, fine amount, and the safest path to regularise</div></div>
+        <div class="cover-item"><div class="cover-icon">🚔</div><div>Active police cases or warrants across Dubai and Abu Dhabi portals</div></div>
+        <div class="cover-item"><div class="cover-icon">✈️</div><div>ICA travel ban check — can you legally exit the UAE right now?</div></div>
+        <div class="cover-item"><div class="cover-icon">🗂️</div><div>Absentee court judgments — cases filed against you that you were never told about</div></div>
+        <div class="cover-item"><div class="cover-icon">📋</div><div>Plain-language written summary delivered to your WhatsApp — no legal jargon</div></div>
+      </div>
+      <div class="tier-langs">
+        <div class="tier-lang"><div class="tier-lang-flag">🇵🇰</div><div class="tier-lang-text">کیا آپ کا ویزہ ختم ہو گیا ہے یا آپ کو گرفتاری کا ڈر ہے؟ ہم آپ کی صورتحال چیک کریں گے اور بتائیں گے کہ کیا کرنا ہے۔ AED 49.99 میں، 24 گھنٹے میں۔</div></div>
+        <div class="tier-lang"><div class="tier-lang-flag">🇵🇭</div><div class="tier-lang-text">Nag-aalala ka ba tungkol sa iyong visa o posibleng kaso? Iche-check namin ang lahat at sasabihin namin sa iyo kung ano ang gagawin — malinaw, sa iyong wika.</div></div>
+        <div class="tier-lang"><div class="tier-lang-flag">🇮🇳</div><div class="tier-lang-text">क्या आपका वीजा खत्म हो गया है या आपको गिरफ्तारी का डर है? हम 24 घंटे में आपकी پوری स्थिति जांचेंगे और सरल भाषा میں बताएंगे कि क्या करना है۔</div></div>
+      </div>
+      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20a%20Tier%201%20Status%20Check%20-%20I%20am%20worried%20about%20my%20visa%20or%20a%20legal%20issue" class="tier-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Get My Status Check — AED 49.99
+      </a>
+    </div>
+
+    <!-- TIER 2 -->
+    <div class="tier-card t2">
+      <div class="tier-header">
+        <div class="tier-badge">🏠</div>
+        <div class="tier-meta">
+          <div class="tier-urgency">Tier 2 · Shelter &amp; Housing · AED 149</div>
+          <div class="tier-name">Eviction &amp; Rental Dispute Help</div>
+          <div class="tier-hook">Landlord threatening eviction? Received an illegal notice? UAE law has specific protections for tenants — and most landlords rely on you not knowing them. We do.</div>
+        </div>
+      </div>
+      <div class="tier-price-row">
+        <div>
+          <div class="tier-price">AED 149</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">≈ $40 USD</div>
+        </div>
+        <div style="text-align:right;font-size:12px;color:var(--muted)">Includes free<br><strong style="color:#fff;font-size:15px">20-min lawyer call*</strong></div>
+      </div>
+      <div class="tier-covers">
+        <div class="tier-covers-label">This covers</div>
+        <div class="cover-item"><div class="cover-icon">📄</div><div>Full review of your eviction notice — is it legally valid under UAE Tenancy Law No. 26 of 2007?</div></div>
+        <div class="cover-item"><div class="cover-icon">⚖️</div><div>Step-by-step guide to the Rental Dispute Centre (Dubai) or equivalent authority in your emirate</div></div>
+        <div class="cover-item"><div class="cover-icon">🔔</div><div>Explanation of the 12-month notice rule and the legal grounds your landlord must meet</div></div>
+        <div class="cover-item"><div class="cover-icon">📞</div><div>20-minute WhatsApp voice consultation with a UAE-licensed legal professional*</div></div>
+        <div class="cover-item"><div class="cover-icon">📝</div><div>Draft formal objection letter in English and Arabic for your records</div></div>
+      </div>
+      <div style="padding:10px 22px 16px">
+        <div style="background:rgba(224,140,0,.07);border:1px solid rgba(224,140,0,.25);border-radius:8px;padding:12px 14px;font-size:12px;color:#C8A060;line-height:1.6">* The 20-minute consultation is provided by a UAE-licensed legal professional and constitutes general legal information — not formal representation or court filing. Do not advertise this tier until the practitioner arrangement is confirmed in writing.</div>
+      </div>
+      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20an%20eviction%20or%20rental%20dispute%20in%20UAE" class="tier-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741 .982 .998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898 a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297 A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096 .547 4.142 1.588 5.945L.057 24l6.305 -1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89 -5.335 11.893 -11.893a11.821 11.821 0 00 -3.48 -8.413z"/></svg>
+        Get Rental Help — AED 149
+      </a>
+    </div>
+
+    <!-- TIER 3 -->
+    <div class="tier-card t3">
+      <div class="tier-header">
+        <div class="tier-badge">📈</div>
+        <div class="tier-meta">
+          <div class="tier-urgency">Tier 3 · Financial Recovery · AED 299</div>
+          <div class="tier-name">AECB Credit &amp; Insolvency Protection</div>
+          <div class="tier-hook">Your AECB score controls your mortgage, car loan, and whether a bank can freeze your salary. A score below 580 closes doors you may not even know are closing. We open them back up — with a written plan.</div>
+        </div>
+      </div>
+      <div class="tier-price-row">
+        <div>
+          <div class="tier-price">AED 299</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">≈ $81 USD</div>
+        </div>
+        <div style="text-align:right;font-size:12px;color:var(--muted)">Written plan +<br><strong style="color:#fff;font-size:15px">Timeline to target</strong></div>
+      </div>
+      <div class="tier-covers">
+        <div class="tier-covers-label">This covers</div>
+        <div class="cover-item"><div class="cover-icon">📊</div><div>Full AECB credit report retrieval and score analysis — what is hurting you and by exactly how much</div></div>
+        <div class="cover-item"><div class="cover-icon">🗺️</div><div>Staged 6–12 month written repair roadmap with specific monthly actions to reach your target score</div></div>
+        <div class="cover-item"><div class="cover-icon">🏦</div><div>UAE Federal Decree 19 of 2019 personal insolvency guidance — salary protection and debt restructuring eligibility</div></div>
+        <div class="cover-item"><div class="cover-icon">🚫</div><div>Identification of disputable negative entries — errors, cleared debts still showing as unpaid</div></div>
+        <div class="cover-item"><div class="cover-icon">🏠</div><div>Mortgage readiness assessment — exact score needed, how long to reach it, which UAE banks are most accessible at your tier</div></div>
+      </div>
+      <div class="tier-langs">
+        <div class="tier-lang"><div class="tier-lang-flag">🇵🇭</div><div class="tier-lang-text">Gusto mong bumili ng bahay o kotse sa UAE pero nire-reject ka ng bangko? Ang mababang AECB score ang dahilan. Ayusin natin ito — malinaw na plano, hakbang-hakbang.</div></div>
+        <div class="tier-lang"><div class="tier-lang-flag">🇮🇳</div><div class="tier-lang-text">UAE में होम लोन या कार फाइनेंस के लिए बैंक ने मना किया? AECB स्कोर की समस्या है। हम आपको 6–12 महीने में सही स्कोर तक पहुंचाने का लिखित रोडमैप देते हैं।</div></div>
+      </div>
+      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20AECB%20credit%20score%20or%20debt%20situation%20in%20UAE" class="tier-cta">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644 .075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458 .13 -.606 .134 -.133 .298 -.347 .446 -.52 .149 -.174 .198 -.298 .298 -.497 .099 -.198 .05 -.371 -.025 -.52 -.075 -.149 -.669 -1.612 -.916 -2.207 -.242 -.579 -.487 -.5 -.669 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074 .149 .198 2.096 3.2 5.077 4.487 .709 .306 1.262 .489 1.694 .625 .712 .227 1.36 .195 1.871 .118 .571 -.085 1.758 -.719 2.006 -1.413 .248 -.694 .248 -1.289 .173 -1.413 -.074 -.124 -.272 -.198 -.57 -.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031 -1.378l-.361 -.214 -3.741 .982 .998 -3.648 -.235 -.374 a9.86 9.86 0 01-1.51 -5.26 c.001 -5.45 4.436 -9.884 9.888 -9.884 2.64 0 5.122 1.03 6.988 2.898 a9.825 9.825 0 012.893 6.994 c-.003 5.45 -4.437 9.884 -9.885 9.884m8.413 -18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892 c0 2.096 .547 4.142 1.588 5.945L.057 24l6.305 -1.654 a11.882 11.882 0 005.683 1.448 h.005 c6.554 0 11.89 -5.335 11.893 -11.893 a11.821 11.821 0 00 -3.48 -8.413z"/></svg>
+        Fix My Credit Score — AED 299
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<hr class="div"/>
+
+<div class="section">
+  <div class="sec-lbl">Process</div>
+  <h2 class="sec-title">Simple.<br><em>Even if this is your first time asking for help.</em></h2>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div><div class="step-title">Message us on WhatsApp — free, no commitment</div><div class="step-desc">Describe your situation in any language. You do not need legal terms. We identify which tier fits and explain what we can do.</div></div></div>
+    <div class="step"><div class="step-num">2</div><div><div class="step-title">We confirm we can help — before you pay</div><div class="step-desc">We review your situation and confirm the service. You pay only after we say we can deliver. No blind payments.</div></div></div>
+    <div class="step"><div class="step-num">3</div><div><div class="step-title">Pay securely by card — from anywhere</div><div class="step-desc">We send a Wise or PayPal payment link. Card, Apple Pay, Google Pay. No UAE bank account needed. 2 minutes.</div></div></div>
+    <div class="step"><div class="step-num">4</div><div><div class="step-title">Results within 24 hours on WhatsApp</div><div class="step-desc">Your full report or plan, privately delivered in plain language. No jargon. No offices. No queues.</div></div></div>
+  </div>
+</div>
+
+<hr class="div"/>
+
+<div class="section">
+  <div class="sec-lbl">Why People Trust Us</div>
+  <h2 class="sec-title">You do not need to be<br><em>fluent in Arabic law.</em></h2>
+  <p style="font-size:15px;margin-bottom:4px">Most expats in trouble do not have an unsolvable problem. They have a problem they cannot read, in a system they do not understand, in a language they do not speak. We close that gap.</p>
+  <div class="trust-grid">
+    <div class="trust-item"><div class="trust-icon">🔒</div><div class="trust-txt"><strong>Private by design</strong>Nothing you share leaves this WhatsApp. Never forwarded to authorities.</div></div>
+    <div class="trust-item"><div class="trust-icon">💬</div><div class="trust-txt"><strong>Your language</strong>English · Urdu · Hindi · Tagalog · Arabic · Bengali</div></div>
+    <div class="trust-item"><div class="trust-icon">✅</div><div class="trust-txt"><strong>Confirm first</strong>We tell you we can help before you send one dirham.</div></div>
+    <div class="trust-item"><div class="trust-icon">⚡</div><div class="trust-txt"><strong>24-hour results</strong>Not "we'll get back to you." Within 24 hours, guaranteed.</div></div>
+  </div>
+</div>
+
+<div class="bottom-cta">
+  <h2>Not sure which tier fits?</h2>
+  <p>Just message us. Describe your situation in any language. We will tell you exactly which service fits — no pressure, no obligation.</p>
+  <div style="display:flex;justify-content:center;position:relative;">
+    <div class="cta-ring"></div>
+    <a href="https://wa.me/971551359331?text=Hi%2C%20I%20am%20not%20sure%20which%20service%20I%20need%20-%20can%20you%20help%20me" class="cta-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03 -.967 -.273 -.099 -.471 -.148 -.67 .15 -.197 .297 -.767 .966 -.94 1.164 -.173 .199 -.347 .223 -.644 .075 -.297 -.15 -1.255 -.463 -2.39 -1.475 -.883 -.788 -1.48 -1.761 -1.653 -2.059 -.173 -.297 -.018 -.458 .13 -.606 .134 -.133 .298 -.347 .446 -.52 .149 -.174 .198 -.298 .298 -.497 .099 -.198 .05 -.371 -.025 -.52 -.075 -.149 -.669 -1.612 -.916 -2.207 -.242 -.579 -.487 -.5 -.669 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074 .149 .198 2.096 3.2 5.077 4.487 .709 .306 1.262 .489 1.694 .625 .712 .227 1.36 .195 1.871 .118 .571 -.085 1.758 -.719 2.006 -1.413 .248 -.694 .248 -1.289 .173 -1.413 -.074 -.124 -.272 -.198 -.57 -.347m-5.421 7.403h-.004a9.87 9.87 0 01 -5.031 -1.378l-.361 -.214 -3.741 .982 .998 -3.648 -.235 -.374 a9.86 9.86 0 01 -1.51 -5.26c .001 -5.45 4.436 -9.884 9.888 -9.884 2.64 0 5.122 1.03 6.988 2.898 a9.825 9.825 0 012.893 6.994c -.003 5.45 -4.437 9.884 -9.885 9.884m8.413 -18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892 c0 2.096 .547 4.142 1.588 5.945L.057 24l6.305 -1.654 a11.882 11.882 0 005.683 1.448 h.005 c6.554 0 11.89 -5.335 11.893 -11.893 a11.821 11.821 0 00 -3.48 -8.413z"/></svg>
+      Describe My Situation — Free
+    </a>
+  </div>
+  <p style="margin-top:12px;font-size:12px;color:var(--muted)">From AED 49.99 · Confirm first, pay after · 100% confidential</p>
+</div>
+
+<footer>
+  <p>UAE Status Check is an independent document preparation and information retrieval service. We are not a law firm and do not provide legal advice or legal representation. All services are provided for informational and administrative assistance purposes only. The Tier 2 lawyer consultation is provided by a third-party UAE-licensed practitioner and constitutes general legal information, not formal representation. We are not affiliated with any UAE government agency.<br><br>
+  &copy; 2026 UAE Status Check &nbsp;|&nbsp; <a href="https://wa.me/971551359331">WhatsApp: +971 551 359 331</a></p>
+</footer>
+
+<a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20UAE%20situation" class="float-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03 -.967 -.273 -.099 -.471 -.148 -.67 .15 -.197 .297 -.767 .966 -.94 1.164 -.173 .199 -.347 .223 -.644 .075 -.297 -.15 -1.255 -.463 -2.39 -1.475 -.883 -.788 -1.48 -1.761 -1.653 -2.059 -.173 -.297 -.018 -.458 .13 -.606 .134 -.133 .298 -.347 .446 -.52 .149 -.174 .198 -.298 .298 -.497 .099 -.198 .05 -.371 -.025 -.52 -.075 -.149 -.669 -1.612 -.916 -2.207 -.242 -.579 -.487 -.5 -.669 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074 .149 .198 2.096 3.2 5.077 4.487 .709 .306 1.262 .489 1.694 .625 .712 .227 1.36 .195 1.871 .118 .571 -.085 1.758 -.719 2.006 -1.413 .248 -.694 .248 -1.289 .173 -1.413 -.074 -.124 -.272 -.198 -.57 -.347m-5.421 7.403h-.004a9.87 9.87 0 01 -5.031 -1.378l-.361 -.214 -3.741 .982 .998 -3.648 -.235 -.374 a9.86 9.86 0 01 -1.51 -5.26 c.001 -5.45 4.436 -9.884 9.888 -9.884 2.64 0 5.122 1.03 6.988 2.898 a9.825 9.825 0 012.893 6.994 c -.003 5.45 -4.437 9.884 -9.885 9.884m8.413 -18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892 c0 2.096 .547 4.142 1.588 5.945L.057 24l6.305 -1.654 a11.882 11.882 0 005.683 1.448 h.005 c6.554 0 11.89 -5.335 11.893 -11.893 a11.821 11.821 0 00 -3.48 -8.413z"/></svg>
+</a>
+
+</body>
+</html>
