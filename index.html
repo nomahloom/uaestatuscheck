@@ -3,345 +3,1849 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="UAE legal help for expats: visa overstay, eviction disputes, AECB credit repair. Fast, private, affordable. WhatsApp now."/>
-  <title>UAE Status Check — Legal Help for Every Expat</title>
+  <meta name="description" content="Confidential UAE legal status checks. Travel bans, court cases, evictions, AECB credit. Fast, private, professional. WhatsApp now."/>
+  <title>UAE Status Check — Confidential Legal Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    /* ══════════════════════════════════════════════
+       TOKENS & RESET
+    ══════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --red:#E03E3E; --amber:#E08C00; --teal:#00C4B4;
-      --dark:#070C10; --card:#101820; --card2:#0C1420; --border:#1A2A3A;
-      --text:#A8BED4; --muted:#4E6A84; --white:#FFFFFF; --wa:#25D366;
+      --ink:      #070A0E;
+      --ink2:     #0D1218;
+      --ink3:     #131B24;
+      --gold:     #BF9B5A;
+      --gold-lt:  #D4B87A;
+      --gold-dk:  #9A7B3E;
+      --cream:    #F0EAE0;
+      --cream2:   #D8D0C4;
+      --mist:     #8A9BAC;
+      --mist2:    #5A6B7A;
+      --border:   rgba(191,155,90,.18);
+      --border2:  rgba(191,155,90,.08);
+      --glow:     rgba(191,155,90,.12);
+
+      --f-display: 'Playfair Display', Georgia, serif;
+      --f-body:    'Barlow', sans-serif;
+      --f-label:   'Barlow Condensed', sans-serif;
+
+      --r-sm:  8px;
+      --r-md:  14px;
+      --r-lg:  22px;
+
+      --ease: cubic-bezier(.22,.68,0,1.2);
+      --ease-out: cubic-bezier(.16,1,.3,1);
     }
-    html { scroll-behavior:smooth; }
-    body { background:var(--dark); color:var(--text); font-family:'DM Sans',sans-serif; line-height:1.65; overflow-x:hidden; }
 
-    @keyframes fadeUp    { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
-    @keyframes pulseRing { 0%{transform:scale(1);opacity:.65} 100%{transform:scale(2);opacity:0} }
-    @keyframes blink     { 0%,100%{opacity:1} 50%{opacity:.2} }
-    @keyframes ticker    { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--ink);
+      color: var(--cream2);
+      font-family: var(--f-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-    .ticker-wrap { background:var(--red); overflow:hidden; padding:7px 0; position:relative; z-index:10; }
-    .ticker-track { display:inline-block; white-space:nowrap; animation:ticker 36s linear infinite; }
-    .ticker-track span { font-family:'Syne',sans-serif; font-size:11px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; color:#fff; margin:0 40px; }
-    .ticker-track span::before { content:'⚠ '; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
 
-    nav { position:sticky; top:0; z-index:100; background:rgba(7,12,16,.95); backdrop-filter:blur(18px); border-bottom:1px solid var(--border); padding:13px 20px; display:flex; justify-content:space-between; align-items:center; }
-    .logo { font-family:'Syne',sans-serif; font-weight:800; font-size:15px; color:var(--teal); }
-    .logo span { color:var(--white); }
-    .nav-pill { font-size:11px; font-weight:600; color:var(--teal); border:1px solid rgba(0,196,180,.3); border-radius:20px; padding:4px 12px; }
+    /* ══════════════════════════════════════════════
+       ANIMATIONS
+    ══════════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; } to { opacity: 1; }
+    }
+    @keyframes lineGrow {
+      from { transform: scaleX(0); } to { transform: scaleX(1); }
+    }
+    @keyframes pulseGold {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(191,155,90,.4); }
+      50%       { box-shadow: 0 0 0 8px rgba(191,155,90,.0); }
+    }
+    @keyframes shimmer {
+      from { background-position: -200% center; }
+      to   { background-position: 200% center; }
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @keyframes drift {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      33%       { transform: translateY(-12px) rotate(.5deg); }
+      66%       { transform: translateY(6px) rotate(-.3deg); }
+    }
 
-    .hero { position:relative; z-index:1; max-width:660px; margin:0 auto; padding:56px 22px 44px; text-align:center; }
-    .eyebrow { display:inline-block; font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--teal); border:1px solid rgba(0,196,180,.3); background:rgba(0,196,180,.06); border-radius:4px; padding:5px 14px; margin-bottom:22px; animation:fadeUp .5s ease both; }
-    .hero h1 { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(26px,7.5vw,46px); line-height:1.15; color:var(--white); margin-bottom:14px; animation:fadeUp .55s .05s ease both; }
-    .hero h1 em { font-style:normal; color:var(--teal); }
-    .hero-sub { font-size:clamp(14px,3.5vw,16px); color:var(--text); max-width:500px; margin:0 auto 28px; animation:fadeUp .55s .1s ease both; }
+    /* reveal on scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .75s var(--ease-out), transform .75s var(--ease-out);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: .1s; }
+    .reveal-delay-2 { transition-delay: .2s; }
+    .reveal-delay-3 { transition-delay: .3s; }
+    .reveal-delay-4 { transition-delay: .4s; }
 
-    .lang-strip { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-bottom:32px; animation:fadeUp .55s .15s ease both; }
-    .lang-pill { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:5px 14px; font-size:13px; color:var(--text); }
-    .lang-pill span { font-size:16px; margin-right:4px; }
+    /* ══════════════════════════════════════════════
+       ANNOUNCEMENT BAR
+    ══════════════════════════════════════════════ */
+    .ann-bar {
+      background: var(--gold-dk);
+      overflow: hidden;
+      padding: 7px 0;
+      position: relative;
+      z-index: 200;
+    }
+    .ann-track {
+      display: inline-block;
+      white-space: nowrap;
+      animation: ticker 40s linear infinite;
+    }
+    .ann-track span {
+      font-family: var(--f-label);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin: 0 48px;
+    }
+    .ann-track span::before { content: '◆  '; }
 
-    .cta-wrap { position:relative; display:inline-flex; justify-content:center; animation:fadeUp .55s .18s ease both; }
-    .cta-ring { position:absolute; inset:-6px; border-radius:50px; border:2px solid var(--wa); animation:pulseRing 2s ease-out infinite; }
-    .cta-btn { position:relative; z-index:1; display:inline-flex; align-items:center; gap:10px; background:var(--wa); color:#082916; font-family:'Syne',sans-serif; font-weight:800; font-size:15px; padding:16px 32px; border-radius:50px; text-decoration:none; box-shadow:0 0 28px rgba(37,211,102,.35); transition:transform .15s,box-shadow .15s; }
-    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 0 44px rgba(37,211,102,.52); }
-    .cta-btn svg { width:20px; height:20px; }
-    .cta-note { font-size:12px; color:var(--muted); margin-top:10px; animation:fadeUp .55s .22s ease both; }
-    .cta-note strong { color:var(--teal); }
-    .live-bar { display:flex; justify-content:center; align-items:center; gap:7px; margin-top:16px; animation:fadeUp .55s .25s ease both; }
-    .live-dot { width:7px; height:7px; border-radius:50%; background:var(--wa); animation:blink 1.4s ease-in-out infinite; }
-    .live-txt { font-size:12px; color:var(--muted); }
+    /* ══════════════════════════════════════════════
+       NAVIGATION
+    ══════════════════════════════════════════════ */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      background: rgba(7,10,14,.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid var(--border);
+      transition: background .3s;
+    }
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .nav-logo-top {
+      font-family: var(--f-label);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .nav-logo-btm {
+      font-family: var(--f-display);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: .03em;
+    }
 
-    hr.div { border:none; border-top:1px solid var(--border); margin:48px 22px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--f-label);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--mist);
+      position: relative;
+      transition: color .2s;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .25s var(--ease);
+    }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-links a:hover::after { transform: scaleX(1); }
 
-    .section { position:relative; z-index:1; max-width:680px; margin:0 auto; padding:0 22px 52px; }
-    .sec-lbl { font-size:10px; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--teal); margin-bottom:8px; }
-    .sec-title { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(20px,5vw,28px); color:var(--white); line-height:1.22; margin-bottom:14px; }
-    .sec-title em { font-style:normal; color:var(--teal); }
+    .nav-cta {
+      font-family: var(--f-label) !important;
+      font-size: 11px !important;
+      font-weight: 700 !important;
+      letter-spacing: .16em !important;
+      text-transform: uppercase !important;
+      color: var(--ink) !important;
+      background: var(--gold);
+      padding: 8px 20px;
+      border-radius: 3px;
+      transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-lt) !important; }
+    .nav-cta::after { display: none !important; }
 
-    .tiers { display:flex; flex-direction:column; gap:20px; }
-    .tier-card { border-radius:16px; overflow:hidden; border:1px solid var(--border); background:var(--card); }
-    .tier-card.t1 { border-color:rgba(224,62,62,.5); }
-    .tier-card.t2 { border-color:rgba(224,140,0,.5); }
-    .tier-card.t3 { border-color:rgba(0,196,180,.5); }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--cream);
+      transition: transform .25s, opacity .25s;
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--ink2);
+      border-bottom: 1px solid var(--border);
+      padding: 24px 5%;
+      z-index: 99;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: var(--f-label);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--mist);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border2);
+    }
 
-    .tier-header { padding:20px 22px 16px; border-bottom:1px solid var(--border); display:flex; align-items:flex-start; gap:16px; }
-    .tier-badge { flex-shrink:0; width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:26px; }
-    .t1 .tier-badge { background:rgba(224,62,62,.12); }
-    .t2 .tier-badge { background:rgba(224,140,0,.12); }
-    .t3 .tier-badge { background:rgba(0,196,180,.12); }
+    /* ══════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 100px 5% 80px;
+    }
 
-    .tier-urgency { font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase; margin-bottom:4px; }
-    .t1 .tier-urgency { color:#E87070; }
-    .t2 .tier-urgency { color:#E0A040; }
-    .t3 .tier-urgency { color:var(--teal); }
-    .tier-name { font-family:'Syne',sans-serif; font-weight:800; font-size:18px; color:var(--white); margin-bottom:4px; }
-    .tier-hook { font-size:14px; color:var(--text); line-height:1.55; }
+    /* layered background */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 40%, rgba(191,155,90,.07) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 80% 70%, rgba(26,44,64,.6) 0%, transparent 55%),
+        linear-gradient(160deg, #070A0E 0%, #0A1220 40%, #0D1828 70%, #070A0E 100%);
+    }
 
-    .tier-price-row { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; border-bottom:1px solid var(--border); background:var(--card2); }
-    .tier-price { font-family:'Syne',sans-serif; font-weight:800; font-size:26px; color:var(--white); }
+    /* grid texture overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(191,155,90,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(191,155,90,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 80%);
+    }
 
-    .tier-covers { padding:16px 22px 6px; }
-    .tier-covers-label { font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
-    .cover-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:10px; font-size:14px; color:var(--text); line-height:1.5; }
-    .cover-icon { flex-shrink:0; font-size:16px; margin-top:1px; }
+    /* floating orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      animation: drift 12s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .orb-1 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(191,155,90,.08) 0%, transparent 70%);
+      top: 10%; left: -5%;
+      animation-delay: 0s;
+    }
+    .orb-2 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(26,60,100,.2) 0%, transparent 70%);
+      bottom: -10%; right: -5%;
+      animation-delay: -4s;
+    }
+    .orb-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(191,155,90,.05) 0%, transparent 70%);
+      top: 60%; left: 40%;
+      animation-delay: -8s;
+    }
 
-    .tier-langs { padding:14px 22px; display:flex; flex-direction:column; gap:8px; border-top:1px solid var(--border); }
-    .tier-lang { display:flex; gap:10px; align-items:flex-start; background:var(--card2); border-radius:8px; padding:10px 12px; }
-    .tier-lang-flag { font-size:18px; flex-shrink:0; }
-    .tier-lang-text { font-size:13px; color:var(--white); line-height:1.45; }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      text-align: center;
+    }
 
-    .tier-cta { margin:4px 22px 20px; display:flex; align-items:center; justify-content:center; gap:8px; padding:13px 20px; border-radius:10px; text-decoration:none; font-family:'Syne',sans-serif; font-weight:700; font-size:14px; transition:background .15s,border-color .15s; }
-    .t1 .tier-cta { background:rgba(224,62,62,.12); border:1px solid rgba(224,62,62,.35); color:#E87070; }
-    .t1 .tier-cta:hover { background:rgba(224,62,62,.2); }
-    .t2 .tier-cta { background:rgba(224,140,0,.1); border:1px solid rgba(224,140,0,.35); color:#E0A040; }
-    .t2 .tier-cta:hover { background:rgba(224,140,0,.2); }
-    .t3 .tier-cta { background:rgba(0,196,180,.1); border:1px solid rgba(0,196,180,.35); color:var(--teal); }
-    .t3 .tier-cta:hover { background:rgba(0,196,180,.18); }
-    .tier-cta svg { width:16px; height:16px; }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--f-label);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 32px;
+      animation: fadeUp .8s var(--ease-out) both;
+    }
+    .hero-kicker::before,
+    .hero-kicker::after {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold-dk);
+    }
 
-    .steps { display:flex; flex-direction:column; gap:0; margin-top:22px; }
-    .step { display:flex; gap:18px; align-items:flex-start; padding-bottom:28px; position:relative; }
-    .step:not(:last-child)::after { content:''; position:absolute; left:17px; top:36px; bottom:0; width:2px; background:var(--border); }
-    .step-num { width:36px; height:36px; border-radius:50%; background:var(--teal); color:var(--dark); font-family:'Syne',sans-serif; font-weight:800; font-size:14px; display:flex; align-items:center; justify-content:center; flex-shrink:0; position:relative; z-index:1; }
-    .step-title { font-family:'Syne',sans-serif; font-weight:700; font-size:15px; color:var(--white); margin-bottom:3px; }
-    .step-desc { font-size:13px; color:var(--muted); line-height:1.55; }
+    .hero-h1 {
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: clamp(36px, 7vw, 72px);
+      line-height: 1.08;
+      color: var(--cream);
+      letter-spacing: -.01em;
+      margin-bottom: 10px;
+      animation: fadeUp .8s .1s var(--ease-out) both;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
 
-    .trust-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:18px; }
-    .trust-item { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:16px 14px; text-align:center; }
-    .trust-icon { font-size:22px; margin-bottom:8px; }
-    .trust-txt { font-size:13px; color:var(--text); line-height:1.45; }
-    .trust-txt strong { color:var(--white); display:block; margin-bottom:2px; }
+    .hero-rule {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 28px auto;
+      animation: fadeIn 1s .3s both;
+    }
 
-    .bottom-cta { background:linear-gradient(140deg,rgba(0,196,180,.08),transparent); border:1px solid rgba(0,196,180,.25); border-radius:18px; padding:44px 22px; text-align:center; margin:0 22px 56px; position:relative; z-index:1; }
-    .bottom-cta h2 { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(20px,5vw,28px); color:var(--white); margin-bottom:10px; }
-    .bottom-cta p { font-size:15px; color:var(--text); max-width:380px; margin:0 auto 26px; }
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 17px);
+      font-weight: 300;
+      color: var(--mist);
+      max-width: 540px;
+      margin: 0 auto 44px;
+      line-height: 1.75;
+      animation: fadeUp .8s .2s var(--ease-out) both;
+    }
+    .hero-sub strong { color: var(--cream2); font-weight: 500; }
 
-    footer { border-top:1px solid var(--border); padding:24px; text-align:center; position:relative; z-index:1; }
-    footer p { font-size:11px; color:var(--muted); line-height:1.8; max-width:560px; margin:0 auto; }
-    footer a { color:var(--muted); }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp .8s .3s var(--ease-out) both;
+    }
 
-    .float-wa { position:fixed; bottom:22px; right:18px; z-index:999; background:var(--wa); width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 24px rgba(37,211,102,.5); text-decoration:none; transition:transform .15s; }
-    .float-wa:hover { transform:scale(1.08); }
-    .float-wa svg { width:26px; height:26px; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: var(--f-label);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      border-radius: 3px;
+      transition: background .2s, transform .15s, box-shadow .2s;
+      animation: pulseGold 3s 1.5s ease-in-out infinite;
+    }
+    .btn-primary:hover {
+      background: var(--gold-lt);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(191,155,90,.3);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      color: var(--cream2);
+      font-family: var(--f-label);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      padding: 15px 32px;
+      border-radius: 3px;
+      border: 1px solid var(--border);
+      transition: border-color .2s, color .2s, transform .15s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold-dk);
+      color: var(--gold-lt);
+      transform: translateY(-2px);
+    }
+
+    .btn-icon {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    /* language pills */
+    .hero-langs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 48px;
+      animation: fadeUp .8s .45s var(--ease-out) both;
+    }
+    .lang-chip {
+      font-family: var(--f-label);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--mist2);
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 2px;
+      padding: 5px 14px;
+      transition: color .2s, border-color .2s;
+    }
+
+    /* hero scroll indicator */
+    .scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--f-label);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--mist2);
+      animation: fadeIn 1.5s 1s both;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold-dk), transparent);
+      animation: lineGrow .8s 1.2s var(--ease-out) both;
+      transform-origin: top;
+    }
+
+    /* ══════════════════════════════════════════════
+       SECTION SCAFFOLDING
+    ══════════════════════════════════════════════ */
+    section { padding: 100px 5%; }
+
+    .section-label {
+      font-family: var(--f-label);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .section-label::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold-dk);
+    }
+
+    .section-h2 {
+      font-family: var(--f-display);
+      font-weight: 700;
+      font-size: clamp(28px, 4.5vw, 46px);
+      line-height: 1.12;
+      color: var(--cream);
+      margin-bottom: 16px;
+    }
+    .section-h2 em {
+      font-style: italic;
+      color: var(--gold-lt);
+    }
+
+    .section-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--mist);
+      max-width: 520px;
+      line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════════════════
+       SERVICES GRID
+    ══════════════════════════════════════════════ */
+    #services { background: var(--ink2); border-top: 1px solid var(--border2); border-bottom: 1px solid var(--border2); }
+
+    .services-header {
+      max-width: 680px;
+      margin-bottom: 64px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .svc-card {
+      position: relative;
+      background: var(--ink3);
+      padding: 48px 44px;
+      overflow: hidden;
+      transition: background .3s;
+      cursor: default;
+    }
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--glow) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity .4s;
+    }
+    .svc-card:hover { background: #111820; }
+    .svc-card:hover::before { opacity: 1; }
+
+    /* top gold accent line */
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-dk), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .5s var(--ease-out);
+    }
+    .svc-card:hover::after { transform: scaleX(1); }
+
+    .svc-number {
+      font-family: var(--f-display);
+      font-size: 64px;
+      font-weight: 700;
+      color: rgba(191,155,90,.08);
+      line-height: 1;
+      margin-bottom: 24px;
+      user-select: none;
+      transition: color .3s;
+    }
+    .svc-card:hover .svc-number { color: rgba(191,155,90,.14); }
+
+    .svc-icon {
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 20px;
+      background: rgba(191,155,90,.04);
+      transition: border-color .3s, background .3s;
+    }
+    .svc-card:hover .svc-icon {
+      border-color: rgba(191,155,90,.4);
+      background: rgba(191,155,90,.08);
+    }
+
+    .svc-urgency {
+      font-family: var(--f-label);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .t1 .svc-urgency { color: #D46060; }
+    .t2 .svc-urgency { color: #C09040; }
+    .t3 .svc-urgency { color: #5090C0; }
+    .t4 .svc-urgency { color: var(--gold); }
+
+    .svc-name {
+      font-family: var(--f-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .svc-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.7;
+      margin-bottom: 28px;
+    }
+
+    .svc-covers {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .svc-cover-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--mist2);
+      font-weight: 300;
+    }
+    .svc-cover-item::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--gold-dk);
+      flex-shrink: 0;
+      position: relative;
+      top: -2px;
+    }
+
+    .svc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      border-top: 1px solid var(--border2);
+    }
+    .svc-price {
+      font-family: var(--f-display);
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--cream);
+    }
+    .svc-price-note {
+      font-size: 11px;
+      color: var(--mist2);
+      margin-top: 2px;
+      font-weight: 300;
+    }
+
+    .svc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--f-label);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 3px;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .svc-btn:hover {
+      background: rgba(191,155,90,.08);
+      border-color: var(--gold-dk);
+    }
+    .svc-btn svg { width: 12px; height: 12px; }
+
+    /* ══════════════════════════════════════════════
+       HOW IT WORKS
+    ══════════════════════════════════════════════ */
+    #how { background: var(--ink); }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      margin-top: 64px;
+    }
+
+    .how-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .how-step {
+      display: flex;
+      gap: 24px;
+      padding-bottom: 40px;
+      position: relative;
+    }
+    .how-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold-dk), transparent);
+    }
+
+    .how-step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--gold-dk);
+      background: rgba(191,155,90,.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--f-label);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold);
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-step-title {
+      font-family: var(--f-display);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 6px;
+      margin-top: 8px;
+    }
+    .how-step-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.7;
+    }
+
+    .how-aside {
+      position: sticky;
+      top: 100px;
+    }
+
+    .how-card {
+      background: var(--ink3);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 44px;
+      position: relative;
+      overflow: hidden;
+    }
+    .how-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .how-card-title {
+      font-family: var(--f-display);
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .how-card-sub {
+      font-size: 14px;
+      color: var(--mist);
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+
+    .how-lang-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .how-lang {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--cream2);
+    }
+    .how-lang-flag { font-size: 20px; }
+    .how-lang-name { font-weight: 500; }
+    .how-lang-native { font-size: 13px; color: var(--mist2); margin-left: auto; }
+
+    .how-wa-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: #25D366;
+      color: #082916;
+      font-family: var(--f-label);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 16px;
+      border-radius: var(--r-sm);
+      transition: background .2s, transform .15s;
+    }
+    .how-wa-btn:hover { background: #2EE072; transform: translateY(-1px); }
+
+    /* ══════════════════════════════════════════════
+       TRUST BADGES
+    ══════════════════════════════════════════════ */
+    #trust {
+      background: var(--ink2);
+      border-top: 1px solid var(--border2);
+      border-bottom: 1px solid var(--border2);
+      padding: 80px 5%;
+    }
+
+    .trust-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 56px;
+    }
+
+    .trust-item {
+      padding: 44px 40px;
+      background: var(--ink3);
+      position: relative;
+      text-align: center;
+      transition: background .3s;
+    }
+    .trust-item:hover { background: #111820; }
+
+    .trust-item-icon {
+      width: 56px;
+      height: 56px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin: 0 auto 20px;
+      background: rgba(191,155,90,.04);
+      transition: border-color .3s;
+    }
+    .trust-item:hover .trust-item-icon { border-color: rgba(191,155,90,.4); }
+
+    .trust-item-title {
+      font-family: var(--f-display);
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+    }
+    .trust-item-desc {
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.65;
+    }
+
+    /* ══════════════════════════════════════════════
+       FAQ
+    ══════════════════════════════════════════════ */
+    #faq { background: var(--ink); }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      margin-top: 64px;
+      align-items: start;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .faq-item {
+      background: var(--ink3);
+      border: 1px solid var(--border2);
+      border-radius: 0;
+      overflow: hidden;
+      transition: border-color .2s;
+    }
+    .faq-item:first-child { border-radius: var(--r-sm) var(--r-sm) 0 0; }
+    .faq-item:last-child { border-radius: 0 0 var(--r-sm) var(--r-sm); }
+    .faq-item.open { border-color: var(--border); }
+
+    .faq-q {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 22px 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--f-body);
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--cream2);
+      transition: color .2s;
+    }
+    .faq-q:hover { color: var(--cream); }
+    .faq-item.open .faq-q { color: var(--gold-lt); }
+
+    .faq-chevron {
+      width: 20px;
+      height: 20px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 10px;
+      color: var(--mist2);
+      transition: transform .3s var(--ease-out), border-color .2s, color .2s;
+    }
+    .faq-item.open .faq-chevron {
+      transform: rotate(180deg);
+      border-color: var(--gold-dk);
+      color: var(--gold);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s var(--ease-out);
+    }
+    .faq-a-inner {
+      padding: 0 28px 22px;
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--mist);
+      line-height: 1.75;
+    }
+
+    /* ══════════════════════════════════════════════
+       CONTACT
+    ══════════════════════════════════════════════ */
+    #contact {
+      background: var(--ink2);
+      border-top: 1px solid var(--border2);
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border2);
+    }
+    .contact-detail:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+    .contact-detail-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+      background: rgba(191,155,90,.04);
+    }
+    .contact-detail-label {
+      font-family: var(--f-label);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .contact-detail-val {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--cream2);
+    }
+
+    .contact-wa-panel {
+      background: var(--ink3);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-wa-panel::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 0%, rgba(191,155,90,.06), transparent);
+    }
+    .contact-wa-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+      position: relative;
+    }
+    .contact-wa-title {
+      font-family: var(--f-display);
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .contact-wa-sub {
+      font-size: 14px;
+      color: var(--mist);
+      font-weight: 300;
+      margin-bottom: 28px;
+      position: relative;
+    }
+
+    /* ══════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════ */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid var(--border2);
+      padding: 56px 5% 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border2);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--f-display);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+    .footer-brand-tag {
+      font-family: var(--f-label);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .footer-brand-desc {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--mist2);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-family: var(--f-label);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--cream2);
+      margin-bottom: 20px;
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-links li a {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--mist2);
+      transition: color .2s;
+    }
+    .footer-links li a:hover { color: var(--gold-lt); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--mist2);
+    }
+
+    .footer-legal-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-legal-links a {
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--mist2);
+      transition: color .2s;
+    }
+    .footer-legal-links a:hover { color: var(--gold-lt); }
+
+    .footer-disclaimer {
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border2);
+      font-size: 11px;
+      font-weight: 300;
+      color: var(--mist2);
+      line-height: 1.7;
+      opacity: .7;
+    }
+
+    /* ══════════════════════════════════════════════
+       FLOATING WA BUTTON
+    ══════════════════════════════════════════════ */
+    .float-wa {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 999;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.3);
+      transition: transform .2s, box-shadow .2s;
+      animation: pulseGold 3s 2s ease-in-out infinite;
+    }
+    .float-wa:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 40px rgba(37,211,102,.55);
+    }
+    .float-wa svg { width: 28px; height: 28px; }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .how-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      .how-aside { position: static; }
+
+      .trust-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
+
+      .faq-layout {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-h1 { font-size: clamp(32px, 10vw, 52px); }
+      section { padding: 72px 5%; }
+      .svc-card { padding: 36px 28px; }
+    }
+
+    @media (max-width: 560px) {
+      nav { padding: 0 20px; }
+      .hero-btns { flex-direction: column; align-items: center; }
+      .btn-primary, .btn-ghost { width: 100%; justify-content: center; max-width: 320px; }
+    }
   </style>
 </head>
 <body>
 
-<div class="ticker-wrap" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Visa overstay fines increase after 30 days — check your status today</span>
-    <span>Travel bans are issued without notification — you may have one right now</span>
-    <span>Eviction without proper legal notice is invalid in UAE — know your rights</span>
-    <span>AECB score below 580 blocks home loans and car finance in UAE</span>
-    <span>Arrest warrants can exist without you knowing — check before you travel</span>
-    <span>Services available in English · Urdu · Hindi · Tagalog · Arabic</span>
-    <span>Visa overstay fines increase after 30 days — check your status today</span>
-    <span>Travel bans are issued without notification — you may have one right now</span>
-    <span>Eviction without proper legal notice is invalid in UAE — know your rights</span>
-    <span>AECB score below 580 blocks home loans and car finance in UAE</span>
-    <span>Arrest warrants can exist without you knowing — check before you travel</span>
-    <span>Services available in English · Urdu · Hindi · Tagalog · Arabic</span>
+<!-- ═══════════════════════════════════
+     ANNOUNCEMENT BAR
+════════════════════════════════════ -->
+<div class="ann-bar" role="marquee" aria-label="Updates">
+  <div class="ann-track" aria-hidden="true">
+    <span>Travel bans issued without notification — verify yours today</span>
+    <span>Services available in English, Urdu, Hindi, Tagalog, Arabic</span>
+    <span>Overstay fines increase after 30 days — check now</span>
+    <span>Results within 24 hours — fully confidential</span>
+    <span>Arrest warrants can exist without your knowledge</span>
+    <span>AECB score below 580 blocks mortgage and car finance approval</span>
+    <span>Travel bans issued without notification — verify yours today</span>
+    <span>Services available in English, Urdu, Hindi, Tagalog, Arabic</span>
+    <span>Overstay fines increase after 30 days — check now</span>
+    <span>Results within 24 hours — fully confidential</span>
+    <span>Arrest warrants can exist without your knowledge</span>
+    <span>AECB score below 580 blocks mortgage and car finance approval</span>
   </div>
 </div>
 
-<nav>
-  <div class="logo">UAE <span>STATUS CHECK</span></div>
-  <div class="nav-pill">Confidential ✓</div>
+<!-- ═══════════════════════════════════
+     NAVIGATION
+════════════════════════════════════ -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-top">Established 2024</span>
+    <span class="nav-logo-btm">UAE Status Check</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li>
+      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20UAE%20situation" class="nav-cta">
+        WhatsApp Us
+      </a>
+    </li>
+  </ul>
+
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
-<div class="hero">
-  <div class="eyebrow">3 Service Tiers · From AED 49.99 · WhatsApp Only · All UAE</div>
-  <h1>In trouble with UAE law?<br><em>We help you understand it.</em></h1>
-  <p class="hero-sub">From visa overstays to eviction disputes to credit problems — we explain your situation clearly, in your language, and show you exactly what to do next. Starting from AED 49.99.</p>
-
-  <div class="lang-strip">
-    <div class="lang-pill"><span>🇬🇧</span>English</div>
-    <div class="lang-pill"><span>🇵🇰</span>Urdu / اردو</div>
-    <div class="lang-pill"><span>🇮🇳</span>Hindi / हिंदी</div>
-    <div class="lang-pill"><span>🇵🇭</span>Tagalog</div>
-    <div class="lang-pill"><span>🇦🇪</span>Arabic / عربي</div>
-    <div class="lang-pill"><span>🇧🇩</span>Bengali</div>
-  </div>
-
-  <div class="cta-wrap">
-    <div class="cta-ring"></div>
-    <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20UAE%20situation" class="cta-btn">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-      Message Us Now — Free to Ask
-    </a>
-  </div>
-  <p class="cta-note">No judgment. <strong>100% private.</strong> We reply within 30 min · 8AM–11PM UAE time</p>
-  <div class="live-bar"><div class="live-dot"></div><div class="live-txt">Accepting clients now</div></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#how" onclick="closeMobile()">How It Works</a>
+  <a href="#faq" onclick="closeMobile()">FAQ</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20UAE%20situation" style="color:#25D366;border:none">📲 WhatsApp Us Now</a>
 </div>
 
-<hr class="div"/>
+<!-- ═══════════════════════════════════
+     HERO
+════════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+  <div class="orb orb-3" aria-hidden="true"></div>
 
-<div class="section">
-  <div class="sec-lbl">Choose Your Situation</div>
-  <h2 class="sec-title">We meet you<br><em>exactly where you are.</em></h2>
-  <p style="font-size:15px;margin-bottom:28px">You do not need to understand the UAE legal system. Tell us your situation. We explain what it means and what to do — clearly, in plain language, in your language.</p>
+  <div class="hero-content">
+    <div class="hero-kicker">Confidential Legal Intelligence · UAE</div>
 
-  <div class="tiers">
+    <h1 class="hero-h1">
+      Know Your UAE<br>Legal Status.<br>
+      <em>Before They Do.</em>
+    </h1>
 
-    <!-- TIER 1 -->
-    <div class="tier-card t1">
-      <div class="tier-header">
-        <div class="tier-badge">🚨</div>
-        <div class="tier-meta">
-          <div class="tier-urgency">Tier 1 · High Urgency · AED 49.99</div>
-          <div class="tier-name">Status &amp; Safety Check</div>
-          <div class="tier-hook">For people who are worried right now — visa expired, unsure if there is a warrant, afraid to travel. We check every government portal and tell you exactly where you stand, in simple language.</div>
-        </div>
-      </div>
-      <div class="tier-price-row">
-        <div>
-          <div class="tier-price">AED 49.99</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:2px">≈ $14 USD · Full check, one payment</div>
-        </div>
-        <div style="text-align:right;font-size:12px;color:var(--muted)">Results within<br><strong style="color:#fff;font-size:15px">24 hours</strong></div>
-      </div>
-      <div class="tier-covers">
-        <div class="tier-covers-label">This covers</div>
-        <div class="cover-item"><div class="cover-icon">🛂</div><div>Visa overstay status — exact days, fine amount, and the safest path to regularise</div></div>
-        <div class="cover-item"><div class="cover-icon">🚔</div><div>Active police cases or warrants across Dubai and Abu Dhabi portals</div></div>
-        <div class="cover-item"><div class="cover-icon">✈️</div><div>ICA travel ban check — can you legally exit the UAE right now?</div></div>
-        <div class="cover-item"><div class="cover-icon">🗂️</div><div>Absentee court judgments — cases filed against you that you were never told about</div></div>
-        <div class="cover-item"><div class="cover-icon">📋</div><div>Plain-language written summary delivered to your WhatsApp — no legal jargon</div></div>
-      </div>
-      <div class="tier-langs">
-        <div class="tier-lang"><div class="tier-lang-flag">🇵🇰</div><div class="tier-lang-text">کیا آپ کا ویزہ ختم ہو گیا ہے یا آپ کو گرفتاری کا ڈر ہے؟ ہم آپ کی صورتحال چیک کریں گے اور بتائیں گے کہ کیا کرنا ہے۔ AED 49.99 میں، 24 گھنٹے میں۔</div></div>
-        <div class="tier-lang"><div class="tier-lang-flag">🇵🇭</div><div class="tier-lang-text">Nag-aalala ka ba tungkol sa iyong visa o posibleng kaso? Iche-check namin ang lahat at sasabihin namin sa iyo kung ano ang gagawin — malinaw, sa iyong wika.</div></div>
-        <div class="tier-lang"><div class="tier-lang-flag">🇮🇳</div><div class="tier-lang-text">क्या आपका वीजा खत्म हो गया है या आपको गिरफ्तारी का डर है? हम 24 घंटे में आपकी پوری स्थिति जांचेंगे और सरल भाषा میں बताएंगे कि क्या करना है۔</div></div>
-      </div>
-      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20a%20Tier%201%20Status%20Check%20-%20I%20am%20worried%20about%20my%20visa%20or%20a%20legal%20issue" class="tier-cta">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Get My Status Check — AED 49.99
+    <div class="hero-rule" aria-hidden="true"></div>
+
+    <p class="hero-sub">
+      Travel bans, court judgments, police cases, evictions and credit blocks
+      — <strong>issued without warning.</strong> We retrieve the full picture,
+      in your language, within 24 hours. Privately.
+    </p>
+
+    <div class="hero-btns">
+      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20to%20check%20my%20UAE%20legal%20status" class="btn-primary">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Check My Status
+      </a>
+      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20would%20like%20to%20consult%20a%20lawyer%20about%20my%20UAE%20situation" class="btn-ghost">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+        Consult a Lawyer
       </a>
     </div>
 
-    <!-- TIER 2 -->
-    <div class="tier-card t2">
-      <div class="tier-header">
-        <div class="tier-badge">🏠</div>
-        <div class="tier-meta">
-          <div class="tier-urgency">Tier 2 · Shelter &amp; Housing · AED 149</div>
-          <div class="tier-name">Eviction &amp; Rental Dispute Help</div>
-          <div class="tier-hook">Landlord threatening eviction? Received an illegal notice? UAE law has specific protections for tenants — and most landlords rely on you not knowing them. We do.</div>
-        </div>
+    <div class="hero-langs">
+      <span class="lang-chip">🇬🇧 English</span>
+      <span class="lang-chip">🇵🇰 اردو</span>
+      <span class="lang-chip">🇮🇳 हिंदी</span>
+      <span class="lang-chip">🇵🇭 Tagalog</span>
+      <span class="lang-chip">🇦🇪 عربي</span>
+      <span class="lang-chip">🇧🇩 বাংলা</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     SERVICES GRID
+════════════════════════════════════ -->
+<section id="services">
+  <div class="services-header reveal">
+    <div class="section-label">Our Services</div>
+    <h2 class="section-h2">Four areas.<br><em>One confidential service.</em></h2>
+    <p class="section-sub">Every service is delivered privately to your WhatsApp within 24 hours. We confirm we can help before you pay a single dirham.</p>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- Card 1 -->
+    <div class="svc-card t1 reveal">
+      <div class="svc-number" aria-hidden="true">01</div>
+      <div class="svc-icon">⚖️</div>
+      <div class="svc-urgency">Critical Urgency</div>
+      <h3 class="svc-name">Arrest &amp; Status<br>Check</h3>
+      <p class="svc-desc">Travel bans, police cases, absentee court judgments, visa overstay, immigration fines. Know exactly where you stand before you travel or interact with any authority.</p>
+      <div class="svc-covers">
+        <div class="svc-cover-item">ICA travel ban check (all emirates)</div>
+        <div class="svc-cover-item">Dubai &amp; Abu Dhabi police case portals</div>
+        <div class="svc-cover-item">Absentee court judgment review</div>
+        <div class="svc-cover-item">Visa overstay status &amp; fine calculation</div>
+        <div class="svc-cover-item">Plain-language summary to WhatsApp</div>
       </div>
-      <div class="tier-price-row">
+      <div class="svc-footer">
         <div>
-          <div class="tier-price">AED 149</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:2px">≈ $40 USD</div>
+          <div class="svc-price">AED 49.99</div>
+          <div class="svc-price-note">Results in 24 hours</div>
         </div>
-        <div style="text-align:right;font-size:12px;color:var(--muted)">Includes free<br><strong style="color:#fff;font-size:15px">20-min lawyer call*</strong></div>
+        <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20a%20Tier%201%20Status%20Check%20for%20travel%20ban%20or%20police%20case" class="svc-btn">
+          Get Started
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
       </div>
-      <div class="tier-covers">
-        <div class="tier-covers-label">This covers</div>
-        <div class="cover-item"><div class="cover-icon">📄</div><div>Full review of your eviction notice — is it legally valid under UAE Tenancy Law No. 26 of 2007?</div></div>
-        <div class="cover-item"><div class="cover-icon">⚖️</div><div>Step-by-step guide to the Rental Dispute Centre (Dubai) or equivalent authority in your emirate</div></div>
-        <div class="cover-item"><div class="cover-icon">🔔</div><div>Explanation of the 12-month notice rule and the legal grounds your landlord must meet</div></div>
-        <div class="cover-item"><div class="cover-icon">📞</div><div>20-minute WhatsApp voice consultation with a UAE-licensed legal professional*</div></div>
-        <div class="cover-item"><div class="cover-icon">📝</div><div>Draft formal objection letter in English and Arabic for your records</div></div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="svc-card t2 reveal reveal-delay-1">
+      <div class="svc-number" aria-hidden="true">02</div>
+      <div class="svc-icon">🏛️</div>
+      <div class="svc-urgency">Housing &amp; Shelter</div>
+      <h3 class="svc-name">Eviction &amp; Rental<br>Dispute</h3>
+      <p class="svc-desc">UAE tenancy law provides specific protections most landlords rely on you not knowing. An illegal eviction notice has no legal force — and you have the right to challenge it.</p>
+      <div class="svc-covers">
+        <div class="svc-cover-item">Eviction notice validity check (Law No. 26/2007)</div>
+        <div class="svc-cover-item">Rental Dispute Centre filing guide</div>
+        <div class="svc-cover-item">12-month rule explanation &amp; legal grounds</div>
+        <div class="svc-cover-item">20-minute UAE-licensed lawyer consultation*</div>
+        <div class="svc-cover-item">Draft formal objection letter (EN &amp; AR)</div>
       </div>
-      <div style="padding:10px 22px 16px">
-        <div style="background:rgba(224,140,0,.07);border:1px solid rgba(224,140,0,.25);border-radius:8px;padding:12px 14px;font-size:12px;color:#C8A060;line-height:1.6">* The 20-minute consultation is provided by a UAE-licensed legal professional and constitutes general legal information — not formal representation or court filing. Do not advertise this tier until the practitioner arrangement is confirmed in writing.</div>
+      <div class="svc-footer">
+        <div>
+          <div class="svc-price">AED 149</div>
+          <div class="svc-price-note">Includes lawyer consultation*</div>
+        </div>
+        <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20an%20eviction%20or%20rental%20dispute" class="svc-btn">
+          Get Started
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
       </div>
-      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20an%20eviction%20or%20rental%20dispute%20in%20UAE" class="tier-cta">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741 .982 .998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898 a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297 A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096 .547 4.142 1.588 5.945L.057 24l6.305 -1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89 -5.335 11.893 -11.893a11.821 11.821 0 00 -3.48 -8.413z"/></svg>
-        Get Rental Help — AED 149
+    </div>
+
+    <!-- Card 3 -->
+    <div class="svc-card t3 reveal reveal-delay-2">
+      <div class="svc-number" aria-hidden="true">03</div>
+      <div class="svc-icon">🚦</div>
+      <div class="svc-urgency">Traffic &amp; Licensing</div>
+      <h3 class="svc-name">Traffic Fines &amp;<br>Licence Reinstatement</h3>
+      <p class="svc-desc">Fines accumulate invisibly. Black points can suspend your licence without notice. Many fines without photographic evidence are disputable — but only if you know they exist first.</p>
+      <div class="svc-covers">
+        <div class="svc-cover-item">Full RTA &amp; traffic fine record retrieval</div>
+        <div class="svc-cover-item">Dispute eligibility assessment per fine</div>
+        <div class="svc-cover-item">Black point accumulation review</div>
+        <div class="svc-cover-item">Licence reinstatement via RTA Smart Services</div>
+        <div class="svc-cover-item">Step-by-step dispute submission guide</div>
+      </div>
+      <div class="svc-footer">
+        <div>
+          <div class="svc-price">AED 99</div>
+          <div class="svc-price-note">Assessment + dispute guidance</div>
+        </div>
+        <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20traffic%20fines%20or%20licence%20reinstatement" class="svc-btn">
+          Get Started
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="svc-card t4 reveal reveal-delay-3">
+      <div class="svc-number" aria-hidden="true">04</div>
+      <div class="svc-icon">📊</div>
+      <div class="svc-urgency">Financial Recovery</div>
+      <h3 class="svc-name">AECB Credit &amp;<br>Insolvency Protection</h3>
+      <p class="svc-desc">Your AECB score determines mortgage eligibility, car finance, and salary protection. A score below 580 closes doors you may not know are closing. We build the roadmap back.</p>
+      <div class="svc-covers">
+        <div class="svc-cover-item">Full AECB report retrieval &amp; score analysis</div>
+        <div class="svc-cover-item">6–12 month staged credit repair roadmap</div>
+        <div class="svc-cover-item">Decree 19 of 2019 personal insolvency guidance</div>
+        <div class="svc-cover-item">Disputable negative entry identification</div>
+        <div class="svc-cover-item">Mortgage readiness assessment</div>
+      </div>
+      <div class="svc-footer">
+        <div>
+          <div class="svc-price">AED 299</div>
+          <div class="svc-price-note">Written plan + timeline</div>
+        </div>
+        <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20AECB%20credit%20score%20or%20debt%20situation" class="svc-btn">
+          Get Started
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <p style="font-size:12px;color:var(--mist2);font-weight:300;margin-top:20px;padding:0 4px">* Tier 2 lawyer consultation provided by a UAE-licensed practitioner. Constitutes general legal information, not formal representation. Confirm practitioner arrangement before advertising this service.</p>
+</section>
+
+<!-- ═══════════════════════════════════
+     TRUST BADGES
+════════════════════════════════════ -->
+<section id="trust">
+  <div class="trust-inner">
+    <div style="text-align:center;margin-bottom:0" class="reveal">
+      <div class="section-label" style="justify-content:center">Why Clients Trust Us</div>
+      <h2 class="section-h2" style="text-align:center">Built on<br><em>one principle.</em></h2>
+      <p class="section-sub" style="margin:12px auto 0">You are dealing with a situation that could affect your freedom, your home, or your finances. Every aspect of how we work is designed around that reality.</p>
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item reveal">
+        <div class="trust-item-icon">🔒</div>
+        <div class="trust-item-title">100% Confidential</div>
+        <p class="trust-item-desc">Nothing you share leaves this service. We are not affiliated with any UAE government agency. Your information is never forwarded, stored publicly, or disclosed to any authority.</p>
+      </div>
+      <div class="trust-item reveal reveal-delay-1">
+        <div class="trust-item-icon">⚡</div>
+        <div class="trust-item-title">24-Hour Turnaround</div>
+        <p class="trust-item-desc">Not "we'll get back to you." Every service is delivered to your WhatsApp within 24 hours of confirmed payment. For urgent travel situations, tell us your flight date.</p>
+      </div>
+      <div class="trust-item reveal reveal-delay-2">
+        <div class="trust-item-icon">💳</div>
+        <div class="trust-item-title">Secure Payments</div>
+        <p class="trust-item-desc">Payment via Wise or PayPal — accepted globally by card, Apple Pay, or Google Pay. No UAE bank account required. We confirm we can help before you pay.</p>
+      </div>
+      <div class="trust-item reveal reveal-delay-3">
+        <div class="trust-item-icon">🌐</div>
+        <div class="trust-item-title">Six Languages</div>
+        <p class="trust-item-desc">English, Urdu, Hindi, Tagalog, Arabic, and Bengali. You do not need to explain your situation in a language you are not comfortable in.</p>
+      </div>
+      <div class="trust-item reveal reveal-delay-1">
+        <div class="trust-item-icon">✅</div>
+        <div class="trust-item-title">Confirm First</div>
+        <p class="trust-item-desc">We review your situation and confirm we can deliver the service before you send any payment. No blind transactions.</p>
+      </div>
+      <div class="trust-item reveal reveal-delay-2">
+        <div class="trust-item-icon">📋</div>
+        <div class="trust-item-title">Plain Language</div>
+        <p class="trust-item-desc">Results are delivered in clear, jargon-free language. No legal terminology without explanation. You will understand exactly what you are looking at.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════ -->
+<section id="how">
+  <div class="how-grid">
+    <div>
+      <div class="section-label reveal">The Process</div>
+      <h2 class="section-h2 reveal">Four steps.<br><em>Start to results.</em></h2>
+      <p class="section-sub reveal" style="margin-bottom:0">No offices. No queues. No forms in Arabic you cannot read. Everything happens on WhatsApp.</p>
+
+      <div class="how-steps" style="margin-top:48px">
+        <div class="how-step reveal">
+          <div class="how-step-num">01</div>
+          <div>
+            <div class="how-step-title">Message us — free, no commitment</div>
+            <p class="how-step-desc">Describe your situation in any language. You do not need the legal terms. We will identify which service fits and confirm what we can do — before anything else.</p>
+          </div>
+        </div>
+        <div class="how-step reveal reveal-delay-1">
+          <div class="how-step-num">02</div>
+          <div>
+            <div class="how-step-title">We confirm we can help</div>
+            <p class="how-step-desc">We review your situation and confirm the service scope. Only then do we ask for payment. You will know exactly what you are getting before you spend anything.</p>
+          </div>
+        </div>
+        <div class="how-step reveal reveal-delay-2">
+          <div class="how-step-num">03</div>
+          <div>
+            <div class="how-step-title">Pay securely in two minutes</div>
+            <p class="how-step-desc">We send a Wise or PayPal link. Card, Apple Pay, or Google Pay. No UAE bank account needed. Payment clears within minutes and we begin immediately.</p>
+          </div>
+        </div>
+        <div class="how-step reveal reveal-delay-3">
+          <div class="how-step-num">04</div>
+          <div>
+            <div class="how-step-title">Receive results in 24 hours</div>
+            <p class="how-step-desc">Your full report or plan, delivered privately to this WhatsApp conversation. Clear language. No jargon. If anything is flagged, we explain next steps.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="how-aside reveal">
+      <div class="how-card">
+        <div class="how-card-title">We speak your language.</div>
+        <p class="how-card-sub">Message us in whichever language you are most comfortable with. We will respond in kind.</p>
+        <div class="how-lang-list">
+          <div class="how-lang"><span class="how-lang-flag">🇬🇧</span><span class="how-lang-name">English</span><span class="how-lang-native">English</span></div>
+          <div class="how-lang"><span class="how-lang-flag">🇵🇰</span><span class="how-lang-name">Urdu</span><span class="how-lang-native">اردو</span></div>
+          <div class="how-lang"><span class="how-lang-flag">🇮🇳</span><span class="how-lang-name">Hindi</span><span class="how-lang-native">हिंदी</span></div>
+          <div class="how-lang"><span class="how-lang-flag">🇵🇭</span><span class="how-lang-name">Tagalog</span><span class="how-lang-native">Filipino</span></div>
+          <div class="how-lang"><span class="how-lang-flag">🇦🇪</span><span class="how-lang-name">Arabic</span><span class="how-lang-native">عربي</span></div>
+          <div class="how-lang"><span class="how-lang-flag">🇧🇩</span><span class="how-lang-name">Bengali</span><span class="how-lang-native">বাংলা</span></div>
+        </div>
+        <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20UAE%20situation" class="how-wa-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Start on WhatsApp — Free
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FAQ
+════════════════════════════════════ -->
+<section id="faq" style="background:var(--ink2);border-top:1px solid var(--border2)">
+  <div class="faq-layout">
+    <div class="reveal">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-h2">Common<br><em>questions.</em></h2>
+      <p class="section-sub">If yours is not here, message us on WhatsApp. We respond within 30 minutes between 8AM and 11PM UAE time.</p>
+      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20have%20a%20question%20about%20your%20services" class="btn-ghost" style="margin-top:28px;display:inline-flex">
+        Ask on WhatsApp →
       </a>
     </div>
 
-    <!-- TIER 3 -->
-    <div class="tier-card t3">
-      <div class="tier-header">
-        <div class="tier-badge">📈</div>
-        <div class="tier-meta">
-          <div class="tier-urgency">Tier 3 · Financial Recovery · AED 299</div>
-          <div class="tier-name">AECB Credit &amp; Insolvency Protection</div>
-          <div class="tier-hook">Your AECB score controls your mortgage, car loan, and whether a bank can freeze your salary. A score below 580 closes doors you may not even know are closing. We open them back up — with a written plan.</div>
+    <div class="faq-list reveal reveal-delay-1">
+
+      <div class="faq-item open">
+        <button class="faq-q">
+          Will you report me to UAE authorities?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a" style="max-height:200px">
+          <div class="faq-a-inner">No. We are an independent information retrieval and document assistance service. We are not affiliated with any UAE government agency, immigration authority, or law enforcement body. Everything you share with us is strictly private and is never forwarded or disclosed to any third party.</div>
         </div>
       </div>
-      <div class="tier-price-row">
+
+      <div class="faq-item">
+        <button class="faq-q">
+          How do you check my status? Is it official?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">We access publicly available UAE government portals — including the ICA Smart Services portal (travel bans), Dubai Police and Abu Dhabi Police case portals, and RTA fine records — using the details you provide. These are the same portals you could access yourself. We compile the results, interpret them, and explain what they mean in plain language.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Do I have to pay before you confirm you can help?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">No. We review your situation first and confirm that we can deliver the service. Payment is only requested after that confirmation. You will not be charged for a service we cannot perform.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          How do I pay? I don't have a UAE bank account.
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Payment is via Wise or PayPal — both accept international debit and credit cards, Apple Pay, and Google Pay. A UAE bank account is not required. Payment takes approximately two minutes and works from any country.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          What if my results show a serious problem?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">We will explain clearly what each finding means and what your options are — in plain language, without alarming you unnecessarily. For serious matters such as active arrest warrants or travel bans, we can provide guidance on the appropriate next steps and, where relevant, connect you with licensed legal professionals for formal representation.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          How long does a Tier 1 status check take?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">Results are delivered to your WhatsApp within 24 hours of confirmed payment. If you have a flight within 24–48 hours, state this when you message us and we will prioritise your case.</div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q">
+          Is the Tier 2 lawyer consultation real?
+          <span class="faq-chevron">▾</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-a-inner">The 20-minute consultation included in Tier 2 is provided by a UAE-licensed legal professional via WhatsApp voice call. It constitutes general legal information and guidance — not formal legal representation or court appearance. For formal proceedings, you will need to engage a licensed lawyer directly, which we can assist with arranging.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     CONTACT
+════════════════════════════════════ -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="section-h2">Reach us<br><em>any time.</em></h2>
+      <p class="section-sub" style="margin-bottom:40px">We respond to every message between 8AM and 11PM UAE time. Outside those hours, your message is received and answered first thing when we are next available.</p>
+
+      <div class="contact-detail">
+        <div class="contact-detail-icon">📲</div>
         <div>
-          <div class="tier-price">AED 299</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:2px">≈ $81 USD</div>
+          <div class="contact-detail-label">WhatsApp (primary)</div>
+          <div class="contact-detail-val">+971 55 135 9331</div>
         </div>
-        <div style="text-align:right;font-size:12px;color:var(--muted)">Written plan +<br><strong style="color:#fff;font-size:15px">Timeline to target</strong></div>
       </div>
-      <div class="tier-covers">
-        <div class="tier-covers-label">This covers</div>
-        <div class="cover-item"><div class="cover-icon">📊</div><div>Full AECB credit report retrieval and score analysis — what is hurting you and by exactly how much</div></div>
-        <div class="cover-item"><div class="cover-icon">🗺️</div><div>Staged 6–12 month written repair roadmap with specific monthly actions to reach your target score</div></div>
-        <div class="cover-item"><div class="cover-icon">🏦</div><div>UAE Federal Decree 19 of 2019 personal insolvency guidance — salary protection and debt restructuring eligibility</div></div>
-        <div class="cover-item"><div class="cover-icon">🚫</div><div>Identification of disputable negative entries — errors, cleared debts still showing as unpaid</div></div>
-        <div class="cover-item"><div class="cover-icon">🏠</div><div>Mortgage readiness assessment — exact score needed, how long to reach it, which UAE banks are most accessible at your tier</div></div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">⏱</div>
+        <div>
+          <div class="contact-detail-label">Response Hours</div>
+          <div class="contact-detail-val">8:00AM – 11:00PM · UAE Time · 7 Days</div>
+        </div>
       </div>
-      <div class="tier-langs">
-        <div class="tier-lang"><div class="tier-lang-flag">🇵🇭</div><div class="tier-lang-text">Gusto mong bumili ng bahay o kotse sa UAE pero nire-reject ka ng bangko? Ang mababang AECB score ang dahilan. Ayusin natin ito — malinaw na plano, hakbang-hakbang.</div></div>
-        <div class="tier-lang"><div class="tier-lang-flag">🇮🇳</div><div class="tier-lang-text">UAE में होम लोन या कार फाइनेंस के लिए बैंक ने मना किया? AECB स्कोर की समस्या है। हम आपको 6–12 महीने में सही स्कोर तक पहुंचाने का लिखित रोडमैप देते हैं।</div></div>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">🌐</div>
+        <div>
+          <div class="contact-detail-label">Languages</div>
+          <div class="contact-detail-val">English · Urdu · Hindi · Tagalog · Arabic · Bengali</div>
+        </div>
       </div>
-      <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20AECB%20credit%20score%20or%20debt%20situation%20in%20UAE" class="tier-cta">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644 .075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458 .13 -.606 .134 -.133 .298 -.347 .446 -.52 .149 -.174 .198 -.298 .298 -.497 .099 -.198 .05 -.371 -.025 -.52 -.075 -.149 -.669 -1.612 -.916 -2.207 -.242 -.579 -.487 -.5 -.669 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074 .149 .198 2.096 3.2 5.077 4.487 .709 .306 1.262 .489 1.694 .625 .712 .227 1.36 .195 1.871 .118 .571 -.085 1.758 -.719 2.006 -1.413 .248 -.694 .248 -1.289 .173 -1.413 -.074 -.124 -.272 -.198 -.57 -.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031 -1.378l-.361 -.214 -3.741 .982 .998 -3.648 -.235 -.374 a9.86 9.86 0 01-1.51 -5.26 c.001 -5.45 4.436 -9.884 9.888 -9.884 2.64 0 5.122 1.03 6.988 2.898 a9.825 9.825 0 012.893 6.994 c-.003 5.45 -4.437 9.884 -9.885 9.884m8.413 -18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892 c0 2.096 .547 4.142 1.588 5.945L.057 24l6.305 -1.654 a11.882 11.882 0 005.683 1.448 h.005 c6.554 0 11.89 -5.335 11.893 -11.893 a11.821 11.821 0 00 -3.48 -8.413z"/></svg>
-        Fix My Credit Score — AED 299
-      </a>
+      <div class="contact-detail">
+        <div class="contact-detail-icon">✉️</div>
+        <div>
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-val">uaestatuscheck@gmail.com</div>
+        </div>
+      </div>
     </div>
 
+    <div class="reveal reveal-delay-1">
+      <div class="contact-wa-panel">
+        <div class="contact-wa-icon">💬</div>
+        <div class="contact-wa-title">Not sure which service you need?</div>
+        <p class="contact-wa-sub">Describe your situation in any language. We will identify the right service and confirm we can help — before you pay anything.</p>
+        <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20but%20I%20am%20not%20sure%20which%20service%20I%20need" class="how-wa-btn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Message Us — Free
+        </a>
+        <p style="font-size:12px;color:var(--mist2);font-weight:300;margin-top:16px;position:relative">No commitment. No payment required to ask a question.</p>
+      </div>
+    </div>
   </div>
-</div>
+</section>
 
-<hr class="div"/>
-
-<div class="section">
-  <div class="sec-lbl">Process</div>
-  <h2 class="sec-title">Simple.<br><em>Even if this is your first time asking for help.</em></h2>
-  <div class="steps">
-    <div class="step"><div class="step-num">1</div><div><div class="step-title">Message us on WhatsApp — free, no commitment</div><div class="step-desc">Describe your situation in any language. You do not need legal terms. We identify which tier fits and explain what we can do.</div></div></div>
-    <div class="step"><div class="step-num">2</div><div><div class="step-title">We confirm we can help — before you pay</div><div class="step-desc">We review your situation and confirm the service. You pay only after we say we can deliver. No blind payments.</div></div></div>
-    <div class="step"><div class="step-num">3</div><div><div class="step-title">Pay securely by card — from anywhere</div><div class="step-desc">We send a Wise or PayPal payment link. Card, Apple Pay, Google Pay. No UAE bank account needed. 2 minutes.</div></div></div>
-    <div class="step"><div class="step-num">4</div><div><div class="step-title">Results within 24 hours on WhatsApp</div><div class="step-desc">Your full report or plan, privately delivered in plain language. No jargon. No offices. No queues.</div></div></div>
-  </div>
-</div>
-
-<hr class="div"/>
-
-<div class="section">
-  <div class="sec-lbl">Why People Trust Us</div>
-  <h2 class="sec-title">You do not need to be<br><em>fluent in Arabic law.</em></h2>
-  <p style="font-size:15px;margin-bottom:4px">Most expats in trouble do not have an unsolvable problem. They have a problem they cannot read, in a system they do not understand, in a language they do not speak. We close that gap.</p>
-  <div class="trust-grid">
-    <div class="trust-item"><div class="trust-icon">🔒</div><div class="trust-txt"><strong>Private by design</strong>Nothing you share leaves this WhatsApp. Never forwarded to authorities.</div></div>
-    <div class="trust-item"><div class="trust-icon">💬</div><div class="trust-txt"><strong>Your language</strong>English · Urdu · Hindi · Tagalog · Arabic · Bengali</div></div>
-    <div class="trust-item"><div class="trust-icon">✅</div><div class="trust-txt"><strong>Confirm first</strong>We tell you we can help before you send one dirham.</div></div>
-    <div class="trust-item"><div class="trust-icon">⚡</div><div class="trust-txt"><strong>24-hour results</strong>Not "we'll get back to you." Within 24 hours, guaranteed.</div></div>
-  </div>
-</div>
-
-<div class="bottom-cta">
-  <h2>Not sure which tier fits?</h2>
-  <p>Just message us. Describe your situation in any language. We will tell you exactly which service fits — no pressure, no obligation.</p>
-  <div style="display:flex;justify-content:center;position:relative;">
-    <div class="cta-ring"></div>
-    <a href="https://wa.me/971551359331?text=Hi%2C%20I%20am%20not%20sure%20which%20service%20I%20need%20-%20can%20you%20help%20me" class="cta-btn">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03 -.967 -.273 -.099 -.471 -.148 -.67 .15 -.197 .297 -.767 .966 -.94 1.164 -.173 .199 -.347 .223 -.644 .075 -.297 -.15 -1.255 -.463 -2.39 -1.475 -.883 -.788 -1.48 -1.761 -1.653 -2.059 -.173 -.297 -.018 -.458 .13 -.606 .134 -.133 .298 -.347 .446 -.52 .149 -.174 .198 -.298 .298 -.497 .099 -.198 .05 -.371 -.025 -.52 -.075 -.149 -.669 -1.612 -.916 -2.207 -.242 -.579 -.487 -.5 -.669 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074 .149 .198 2.096 3.2 5.077 4.487 .709 .306 1.262 .489 1.694 .625 .712 .227 1.36 .195 1.871 .118 .571 -.085 1.758 -.719 2.006 -1.413 .248 -.694 .248 -1.289 .173 -1.413 -.074 -.124 -.272 -.198 -.57 -.347m-5.421 7.403h-.004a9.87 9.87 0 01 -5.031 -1.378l-.361 -.214 -3.741 .982 .998 -3.648 -.235 -.374 a9.86 9.86 0 01 -1.51 -5.26c .001 -5.45 4.436 -9.884 9.888 -9.884 2.64 0 5.122 1.03 6.988 2.898 a9.825 9.825 0 012.893 6.994c -.003 5.45 -4.437 9.884 -9.885 9.884m8.413 -18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892 c0 2.096 .547 4.142 1.588 5.945L.057 24l6.305 -1.654 a11.882 11.882 0 005.683 1.448 h.005 c6.554 0 11.89 -5.335 11.893 -11.893 a11.821 11.821 0 00 -3.48 -8.413z"/></svg>
-      Describe My Situation — Free
-    </a>
-  </div>
-  <p style="margin-top:12px;font-size:12px;color:var(--muted)">From AED 49.99 · Confirm first, pay after · 100% confidential</p>
-</div>
-
+<!-- ═══════════════════════════════════
+     FOOTER
+════════════════════════════════════ -->
 <footer>
-  <p>UAE Status Check is an independent document preparation and information retrieval service. We are not a law firm and do not provide legal advice or legal representation. All services are provided for informational and administrative assistance purposes only. The Tier 2 lawyer consultation is provided by a third-party UAE-licensed practitioner and constitutes general legal information, not formal representation. We are not affiliated with any UAE government agency.<br><br>
-  &copy; 2026 UAE Status Check &nbsp;|&nbsp; <a href="https://wa.me/971551359331">WhatsApp: +971 551 359 331</a></p>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-tag">Established 2024 · UAE</div>
+      <div class="footer-brand-name">UAE Status Check</div>
+      <p class="footer-brand-desc">Confidential legal status intelligence and document assistance for UAE residents and expatriates. Fast, private, multilingual.</p>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Services</div>
+      <ul class="footer-links">
+        <li><a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20a%20Status%20Check">Status &amp; Arrest Check</a></li>
+        <li><a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20eviction">Eviction &amp; Rental</a></li>
+        <li><a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20traffic%20fines">Traffic &amp; Licence</a></li>
+        <li><a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20AECB%20credit">AECB &amp; Credit</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <ul class="footer-links">
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Service Disclaimer</a></li>
+        <li><a href="#">Refund Policy</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 UAE Status Check. All rights reserved.</p>
+    <ul class="footer-legal-links">
+      <li><a href="#">Terms of Service</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="https://wa.me/971551359331">+971 55 135 9331</a></li>
+    </ul>
+  </div>
+
+  <div class="footer-disclaimer">
+    UAE Status Check is an independent document preparation and information retrieval service. We are not a law firm and do not provide legal advice or formal legal representation. All services are provided for informational and administrative assistance purposes only. The Tier 2 lawyer consultation is provided by a third-party UAE-licensed practitioner and constitutes general legal information only. We are not affiliated with any UAE government authority, immigration body, or law enforcement agency. Use of this service does not create a lawyer-client relationship.
+  </div>
 </footer>
 
+<!-- FLOATING WA -->
 <a href="https://wa.me/971551359331?text=Hi%2C%20I%20need%20help%20with%20my%20UAE%20situation" class="float-wa" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03 -.967 -.273 -.099 -.471 -.148 -.67 .15 -.197 .297 -.767 .966 -.94 1.164 -.173 .199 -.347 .223 -.644 .075 -.297 -.15 -1.255 -.463 -2.39 -1.475 -.883 -.788 -1.48 -1.761 -1.653 -2.059 -.173 -.297 -.018 -.458 .13 -.606 .134 -.133 .298 -.347 .446 -.52 .149 -.174 .198 -.298 .298 -.497 .099 -.198 .05 -.371 -.025 -.52 -.075 -.149 -.669 -1.612 -.916 -2.207 -.242 -.579 -.487 -.5 -.669 -.51 -.173 -.008 -.371 -.01 -.57 -.01 -.198 0 -.52 .074 -.792 .372 -.272 .297 -1.04 1.016 -1.04 2.479 0 1.462 1.065 2.875 1.213 3.074 .149 .198 2.096 3.2 5.077 4.487 .709 .306 1.262 .489 1.694 .625 .712 .227 1.36 .195 1.871 .118 .571 -.085 1.758 -.719 2.006 -1.413 .248 -.694 .248 -1.289 .173 -1.413 -.074 -.124 -.272 -.198 -.57 -.347m-5.421 7.403h-.004a9.87 9.87 0 01 -5.031 -1.378l-.361 -.214 -3.741 .982 .998 -3.648 -.235 -.374 a9.86 9.86 0 01 -1.51 -5.26 c.001 -5.45 4.436 -9.884 9.888 -9.884 2.64 0 5.122 1.03 6.988 2.898 a9.825 9.825 0 012.893 6.994 c -.003 5.45 -4.437 9.884 -9.885 9.884m8.413 -18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335 .157 11.892 c0 2.096 .547 4.142 1.588 5.945L.057 24l6.305 -1.654 a11.882 11.882 0 005.683 1.448 h.005 c6.554 0 11.89 -5.335 11.893 -11.893 a11.821 11.821 0 00 -3.48 -8.413z"/></svg>
+  <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
+
+<!-- ═══════════════════════════════════
+     JS
+════════════════════════════════════ -->
+<script>
+  /* ── Mobile menu ── */
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+  document.querySelectorAll('#nav .nav-links a, .mobile-menu a').forEach(a => {
+    a.addEventListener('click', closeMobile);
+  });
+
+  /* ── Scroll reveal ── */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ── FAQ accordion ── */
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement;
+      const answer = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+
+      // close all
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight = '0';
+      });
+
+      // open clicked if was closed
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+
+  /* ── Nav background on scroll ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.background = window.scrollY > 60
+      ? 'rgba(7,10,14,.97)'
+      : 'rgba(7,10,14,.88)';
+  });
+</script>
 
 </body>
 </html>
